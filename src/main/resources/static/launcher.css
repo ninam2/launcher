@@ -1,0 +1,69 @@
+body {
+    font: 100% Gurmukhi MN;
+    margin: 10px;
+    Line-height: 26px;
+    background-color: #00bcff;
+}
+
+/* header */
+.ueberschrift {
+    background-color: #ff0072;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+    top: 26px;
+    padding: 5px 5px 5px 5px;
+    font-size: 150%;
+
+}
+
+.container {
+    max-width: 75%;
+    text-align: center;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    padding-bottom: 10px;
+    margin-left: 10%;
+
+}
+
+.hintergrundblock {
+    max-width: 90%;
+    font-size: 150%;
+    text-align: left;
+    margin-top: 350px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-left: 165px;
+    /*background-color: red;*/
+
+}
+
+.qc {
+    background-color: #dfe2f5;
+    border: none;
+    color: #583bf5;
+    font-size: 120%;
+}
+
+.footer {
+
+    background-color: black;
+    color: white;
+    clear: both;
+    text-align: center;
+    padding: 5px;
+}
+
+ul.seite {
+    font: 100% Gurmukhi MN;
+}
+
+#controller {
+    width: 60%;
+    height: 60%;
+    float: right;
+}
