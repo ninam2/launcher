@@ -22,10 +22,9 @@ body {
 .container {
     max-width: 75%;
     text-align: center;
-    float: left;
     margin-top: 20px;
     margin-bottom: 2px;
-    padding-bottom: 10px;
+    padding-bottom: 1px;
     margin-left: 10%;
 
 }
@@ -34,10 +33,9 @@ body {
     max-width: 90%;
     font-size: 150%;
     text-align: left;
-    margin-top: 350px;
+
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    margin-left: 165px;
+    padding: 10%;
     /*background-color: red;*/
 
 }
@@ -50,7 +48,7 @@ body {
 }
 
 .footer {
-
+    border-radius: 5px 5px 5px 5px;
     background-color: black;
     color: white;
     clear: both;
@@ -63,7 +61,8 @@ ul.seite {
 }
 
 #controller {
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 80%;
     float: right;
+    padding: 5%
 }
