@@ -1,50 +1,47 @@
 body {
-    font: 100% Gurmukhi MN;
+
     margin: 10px;
     Line-height: 26px;
-    background-color: #00bcff;
+    background-size: cover;
 }
 
 /* header */
 .ueberschrift {
-    background-color: #ff0072;
+    font: 150% Impact;
+    background-color: #0e6b37;
     border-radius: 5px 5px 5px 5px;
-    color: white;
+    color: lightgray;
     text-align: center;
     margin-bottom: 35px;
     position: relative;
     top: 26px;
     padding: 5px 5px 5px 5px;
-    font-size: 150%;
 
 }
 
 .container {
+    font: Impact;
+    color: darkred;
     max-width: 75%;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 2px;
     padding-bottom: 1px;
     margin-left: 10%;
+    opacity: 0.8;
 
 }
 
 .hintergrundblock {
-    max-width: 90%;
-    font-size: 150%;
-    text-align: left;
-
+    max-width: 14%;
+    margin-top: -30%;
+    font-size: 100%;
+    text-align: inherit;
+    padding: 1%;
+    color: #ece7ee;
     margin-bottom: 20px;
-    padding: 10%;
-    /*background-color: red;*/
-
-}
-
-.qc {
-    background-color: #dfe2f5;
-    border: none;
-    color: #583bf5;
-    font-size: 120%;
+    background-color: darkgreen;
+    opacity: 0.8;
 }
 
 .footer {
@@ -54,14 +51,11 @@ body {
     clear: both;
     text-align: center;
     padding: 5px;
-}
-
-ul.seite {
-    font: 100% Gurmukhi MN;
+    margin-top: 10%;
 }
 
 #controller {
+    margin-left: 20%;
+    width: 30%;
 
-    float: right;
-    padding: 5%
 }
