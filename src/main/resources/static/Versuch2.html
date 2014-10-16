@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+    <title>Raketenwerfer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="versuchzwei.css" rel="stylesheet" type="text/css">
+</head>
+<body background="252232__abstract-green-lines-stripes-flowers-patterns-background_p.jpg">
+
+<div class="wrapper">
+    <div class="headline">
+        <h1>DREAM CHEEKY THUNDER</h1>
+
+        <p>Use the menu to get some informations</p>
+    </div>
+    <div class="wrapper">
+        <div class="menu">
+            <ul class="menulist">
+                <li class="menuitem" onclick="reStyle(0)">Höhe
+                <li class="menuitem" onclick="reStyle(1)">links/rechts
+                <li class="menuitem" onclick="reStyle(2)">Feuer
+                <li class="menuitem" onclick="reStyle(3)">aus
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Der Raketenwerfer</h1>
+
+            <p>
+                <img id="controller" src="gameboy.png" alt="retro gameboycontroller" usemap="#gameboymap">
+                <map name="gameboymap">
+                    <area alt="left" title="left" href="javascript:console.log('left button pressed')" shape="rect"
+                          coords="95,189,80,204"/>
+                    <area alt="up" title="up" href="javascript:console.log('up button pressed')" shape="rect"
+                          coords="94,174,108,186"
+                          style="outline:none;" target="_self"/>
+                    <area alt="right" title="right" href="javascript:console.log('right button pressed')" shape="rect"
+                          coords="123,186,109,199"
+                          style="outline:none;" target="_self"/>
+                    <area alt="down" title="down" href="javascript:console.log('down button pressed')" shape="rect"
+                          coords="95,215,108,200"
+                          style="outline:none;" target="_self"/>
+                    <area alt="fire" title="fire" href="javascript:console.log('fire button pressed')" shape="poly"
+                          coords="185,189,196,192,200,196,199,201,195,206,190,211,184,208,180,203,180,197"
+                          style="outline:none;" target="_self"/>
+                    <area alt="off" title="off" href="javascript:console.log('off button pressed')" shape="poly"
+                          coords="208,189,214,177,226,179,227,188,223,195,214,198"
+                          style="outline:none;" target="_self"/>
+
+                </map>
+            </p>
+
+
+        </div>
+        <div class="erklaerung">
+            <h3>Product Description</h3>
+
+            <p>
+                The Dream Cheeky Thunder Missile Launcher now delivers the extra power needed to hit further than the
+                old school USB Missile Launcher! This foam missile launcher with its 4 missiles and ability to hit
+                objects far away lets you have more fun in your office. Just connect this USB missile launcher to any PC
+                running on Windows and go around hitting all your targets as many times as you want. A 4-Inch USB chord
+                comes along with this Dream Cheeky Thunder Missile Launcher.
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        <script> document.write(new Date().toDateString()); </script>
+    </div>
+</div>
+
+</body>
+</html>
