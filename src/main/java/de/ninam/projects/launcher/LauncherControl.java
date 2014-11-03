@@ -7,7 +7,7 @@ public class LauncherControl {
 
     public static void main(String[] args) throws IOException, UsbException {
 
-        final LauncherService launcherService = new LauncherService();
+        final LauncherService launcherService = new LauncherServiceCHNTB();
 
         System.out.println("Welcome to launcher control!");
         System.out.println("Press...");
