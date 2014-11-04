@@ -1,4 +1,4 @@
-package de.ninam.projects.launcher;
+package de.ninam.projects.launcher.launcherService;
 
 import javax.usb.UsbConfiguration;
 import javax.usb.UsbConst;
@@ -15,39 +15,18 @@ import java.io.UnsupportedEncodingException;
 /**
  * Service that interacts with the rocket launcher.
  */
-public class LauncherServiceLIbUsb4Java implements LauncherService {
+public class LauncherServiceLIbUsb4Java extends LauncherService {
 
-    private final static String LAUNCHER_PRODUCT_STRING = "USB Missile Launcher";
     /**
      * First init packet to send to the missile launcher.
      */
-    private static final byte[] INIT_A = new byte[]{85, 83, 66, 67, 0, 0, 4,
-            0};
+    private static final byte[] INIT_A = new byte[]{85, 83, 66, 67, 0, 0, 4, 0};
     /**
      * Second init packet to send to the missile launcher.
      */
-    private static final byte[] INIT_B = new byte[]{85, 83, 66, 67, 0, 64, 2,
-            0};
-    /**
-     * Command to rotate the launcher up.
-     */
-    private static final int CMD_UP = 0x01;
-    /**
-     * Command to rotate the launcher down.
-     */
-    private static final int CMD_DOWN = 0x02;
-    /**
-     * Command to rotate the launcher to the left.
-     */
-    private static final int CMD_LEFT = 0x04;
-    /**
-     * Command to rotate the launcher to the right.
-     */
-    private static final int CMD_RIGHT = 0x08;
-    /**
-     * Command to fire a missile.
-     */
-    private static final int CMD_FIRE = 0x10;
+    private static final byte[] INIT_B = new byte[]{85, 83, 66, 67, 0, 64, 2, 0};
+
+
     private UsbDevice rocketLauncher;
 
     public LauncherServiceLIbUsb4Java() throws UsbException, UnsupportedEncodingException {
@@ -85,60 +64,22 @@ public class LauncherServiceLIbUsb4Java implements LauncherService {
         device.syncSubmit(irp);
     }
 
-    /**
-     * Sends a command to the missile launcher.
-     *
-     * @param device  The USB device handle.
-     * @param command The command to send.
-     * @throws UsbException When USB communication failed.
-     */
-    public static void sendCommand(UsbDevice device, int command) {
-        byte[] message = new byte[64];
-        message[1] = (byte) ((command & CMD_LEFT) > 0 ? 1 : 0);
-        message[2] = (byte) ((command & CMD_RIGHT) > 0 ? 1 : 0);
-        message[3] = (byte) ((command & CMD_UP) > 0 ? 1 : 0);
-        message[4] = (byte) ((command & CMD_DOWN) > 0 ? 1 : 0);
-        message[5] = (byte) ((command & CMD_FIRE) > 0 ? 1 : 0);
-        message[6] = 8;
-        message[7] = 8;
+    @Override
+    public void execute(byte[] cmd, int time) {
+
         try {
-            sendMessage(device, INIT_A);
-            sendMessage(device, INIT_B);
-            sendMessage(device, message);
+            sendMessage(rocketLauncher, INIT_A);
+            sendMessage(rocketLauncher, INIT_B);
+            sendMessage(rocketLauncher, cmd);
+            long waitUntil = System.currentTimeMillis() + time;
+            while (waitUntil > System.currentTimeMillis()) {
+                //Burn Time and let the Launcher execute.
+            }
+            sendMessage(rocketLauncher, CMD_STOP);
         } catch (UsbException e) {
             throw new RuntimeException(e);
         }
     }
-
-    @Override
-    public void up() {
-        sendCommand(rocketLauncher, CMD_UP);
-    }
-
-    @Override
-    public void down() {
-        sendCommand(rocketLauncher, CMD_DOWN);
-    }
-
-    @Override
-    public void left() {
-        sendCommand(rocketLauncher, CMD_LEFT);
-    }
-
-    @Override
-    public void right() {
-        sendCommand(rocketLauncher, CMD_RIGHT);
-    }
-
-    @Override
-    public void zero() {
-
-    }
-
-    public void launch() {
-        sendCommand(rocketLauncher, CMD_FIRE);
-    }
-
 
     /**
      * Finds a Rocket Launcher (if connected)

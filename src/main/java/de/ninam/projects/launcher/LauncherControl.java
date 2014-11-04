@@ -1,5 +1,8 @@
 package de.ninam.projects.launcher;
 
+import de.ninam.projects.launcher.launcherService.LauncherService;
+import de.ninam.projects.launcher.launcherService.LauncherServiceCHNTB;
+
 import javax.usb.UsbException;
 import java.io.IOException;
 
