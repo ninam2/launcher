@@ -33,14 +33,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.usb4java</groupId>
-            <artifactId>usb4java-javax</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.usb4java</groupId>
-            <artifactId>libusb4java</artifactId>
-            <version>1.2.0</version>
+            <groupId>org.projectsforge.bundles.libusbjava</groupId>
+            <artifactId>java</artifactId>
+            <version>0.5.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ch.ntb.usb-0.5.9.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -49,4 +46,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <!-- TODO cert issue, find in other repo
+    <repositories>
+        <repository>
+            <id>projectsforge</id>
+            <url>http://projectsforge.org/nexus/content/repositories/public/</url>
+        </repository>
+    </repositories>-->
 </project>

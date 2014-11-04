@@ -1,16 +1,12 @@
 package de.ninam.projects.launcher;
 
-import de.ninam.projects.launcher.launcherService.LauncherService;
-import de.ninam.projects.launcher.launcherService.LauncherServiceCHNTB;
-
-import javax.usb.UsbException;
 import java.io.IOException;
 
 public class LauncherControl {
 
-    public static void main(String[] args) throws IOException, UsbException {
+    public static void main(String[] args) throws IOException {
 
-        final LauncherService launcherService = new LauncherServiceCHNTB();
+        final LauncherService launcherService = new LauncherService();
 
         System.out.println("Welcome to launcher control!");
         System.out.println("Press...");
@@ -20,6 +16,12 @@ public class LauncherControl {
         System.out.println("   d Button to move Launcher right");
         System.out.println("   space Button to launch");
         System.out.println("   x Button to exit program");
+
+        // go to 0-position
+        launcherService.zero();
+
+        // enable led
+        launcherService.ledOn();
 
         char c;
         while ((c = (char) System.in.read()) != 'x') {
@@ -44,5 +46,10 @@ public class LauncherControl {
         }
 
         System.out.println("exiting...");
+
+        // go to 0-position
+        launcherService.zero();
+        // disable led
+        launcherService.ledOff();
     }
 }

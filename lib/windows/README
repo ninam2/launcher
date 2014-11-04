@@ -1,0 +1,9 @@
+1. install/download libusb für win32 (http://sourceforge.net/projects/libusb-win32/)
+2. run libusb-win32-bin-1.2.6.0\bin\inf-wizard.exe and create driver for rocket launcher
+3. click inf-file with right mouse button, install
+3.1 this will not work, disable driver signature check
+ - windows 7: http://en.kioskea.net/faq/3914-windows-7-how-to-install-unsigned-drivers
+3.2 repeat install :)
+4. copy LibusbJava.dll from launcher/lib/windows to c:/windows/system32
+
+-> run LauncherControl.main()
