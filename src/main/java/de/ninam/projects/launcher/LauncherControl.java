@@ -2,7 +2,6 @@ package de.ninam.projects.launcher;
 
 import java.io.IOException;
 
-
 public class LauncherControl {
 
     public static void main(String[] args) throws IOException {
