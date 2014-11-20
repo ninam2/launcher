@@ -1,5 +1,4 @@
 package de.ninam.projects.launcher;
-
 import java.io.IOException;
 
 public class LauncherControl {
