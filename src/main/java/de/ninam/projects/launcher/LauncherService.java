@@ -3,7 +3,6 @@ package de.ninam.projects.launcher;
 import ch.ntb.usb.Device;
 import ch.ntb.usb.USB;
 import ch.ntb.usb.USBException;
-
 public class LauncherService {
 
     private final byte[] CMD_STOP = new byte[]{0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -64,6 +63,45 @@ public class LauncherService {
     public void launch() {
         execute(CMD_FIRE, 3300);
     }
+
+
+    public void rightdown() {
+        up();
+        up();
+        up();
+    }
+
+    public void rightup() {
+        rightdown();
+        rightdown();
+    }
+
+    public void leftdown() {
+        rightdown();
+        left();
+        left();
+    }
+
+    public void leftup() {
+        rightdown();
+        up();
+        left();
+    }
+
+    public void algorithmus() {
+        rightup();
+        launch();
+        down();
+        down();
+        launch();
+        left();
+        left();
+        launch();
+        right();
+        up();
+        launch();
+    }
+
 
     /**
      * zero position.
