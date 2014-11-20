@@ -2,6 +2,7 @@ package de.ninam.projects.launcher;
 import ch.ntb.usb.Device;
 import ch.ntb.usb.USB;
 import ch.ntb.usb.USBException;
+
 public class LauncherService {
 
     private final byte[] CMD_STOP = new byte[]{0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
