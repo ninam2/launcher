@@ -1,4 +1,5 @@
 package de.ninam.projects.launcher;
+
 import ch.ntb.usb.Device;
 import ch.ntb.usb.USB;
 import ch.ntb.usb.USBException;
