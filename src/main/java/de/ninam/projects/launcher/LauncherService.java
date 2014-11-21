@@ -3,6 +3,7 @@ package de.ninam.projects.launcher;
 import ch.ntb.usb.Device;
 import ch.ntb.usb.USB;
 import ch.ntb.usb.USBException;
+import de.ninam.projects.launcher.targets.Target;
 
 
 public class LauncherService {
@@ -34,10 +35,6 @@ public class LauncherService {
         }
     }
 
-    public void stop() {
-        execute(CMD_STOP, 100);
-    }
-
     public void ledOn() {
         execute(CMD_LED_ON, 100);
     }
@@ -66,53 +63,31 @@ public class LauncherService {
         execute(CMD_FIRE, 3300);
     }
 
-
-    public void rightdown() {
-        up();
-        up();
-        up();
-    }
-
-    public void rightup() {
-        rightdown();
-        rightdown();
-    }
-
-    public void leftdown() {
-        rightdown();
-        left();
-        left();
-    }
-
-    public void leftup() {
-        rightdown();
-        up();
-        left();
-    }
-
-    public void algorithmus() {
-        rightup();
-        launch();
-        down();
-        down();
-        launch();
-        left();
-        left();
-        launch();
-        right();
-        up();
-        launch();
-    }
-
-
     /**
      * zero position.
      */
     public void zero() {
         execute(CMD_DOWN, 3000);
         execute(CMD_LEFT, 6000);
-        execute(CMD_RIGHT, 3000);
-        execute(CMD_UP, 200);
+    }
+
+    /**
+     * auto-shoots a given target
+     *
+     * @param target to shoot
+     */
+    public void autoShoot(Target target) {
+
+        // first go to zero-position
+        zero();
+
+        // now move launcher accoring to target config
+        for (int i = 0; i < target.getStepsRight(); i++) {
+            right();
+        }
+        for (int i = 0; i < target.getStepsUp(); i++) {
+            up();
+        }
     }
 
     /**

@@ -11,7 +11,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>de.ninam.projects.launcher.LauncherControl</mainClass>
+                            <mainClass>de.ninam.projects.launcher.console.Launcher</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -40,6 +40,12 @@
             <systemPath>${project.basedir}/lib/ch.ntb.usb-0.5.9.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
@@ -47,7 +53,7 @@
         </dependency>
     </dependencies>
 
-    <!-- TODO cert issue, find in other repo
+    <!-- TODO cert issue, find ch.ntb.usb in other repo
     <repositories>
         <repository>
             <id>projectsforge</id>
