@@ -31,7 +31,7 @@ public class LauncherService {
         try {
             rocketLauncher.open(1, 0, -1); // Open the device (Configuration(default), Interface(Control), AlternativeConfig(None))
         } catch (USBException ex) {
-            throw new RuntimeException("launcher not available");
+            throw new RuntimeException("launcher not available", ex);
         }
     }
 
