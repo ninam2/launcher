@@ -2,21 +2,18 @@ package de.ninam.projects.launcher.console;
 
 import de.ninam.projects.launcher.LauncherService;
 import de.ninam.projects.launcher.targets.Targets;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Glue-code between {@link Launcher} and {@link de.ninam.projects.launcher.LauncherService}.
  * Translates user input into commands.
  */
+@Service
 public class LauncherControl {
 
-    private LauncherService launcherService;
-
-    public LauncherControl() {
-    }
-
-    public LauncherControl(LauncherService launcherService) {
-        this.launcherService = launcherService;
-    }
+    @Autowired
+    public LauncherService launcherService;
 
     /**
      * Initializes the rocket launcher.
@@ -39,7 +36,7 @@ public class LauncherControl {
     }
 
     /**
-     * Executes a command with the help of {@link de.ninam.projects.launcher.LauncherService}
+     * Executes a command with the help of {@link LauncherService}
      * <p/>
      * <ul>
      * <li>0 - moves to a zero-position</li>
@@ -49,6 +46,7 @@ public class LauncherControl {
      * @param command will be executed
      */
     public void executeCommand(char command) {
+        System.out.println("Executing command: " + command);
 
         switch (command) {
             case '0':
@@ -89,4 +87,6 @@ public class LauncherControl {
                 break;
         }
     }
+
+
 }

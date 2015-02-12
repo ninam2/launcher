@@ -31,40 +31,47 @@
             </ul>
         </div>
 
-        <div ng-app="Launcher" ng-controller="LauncherControl">
-            Befehle: <input type="text" ng-model="comand" ng-change="executeCommand()"/>
+        <div ng-app="launcherApplication" ng-controller="launcherWebController">
+            Befehle: <input type="text" ng-model="ctl" ng-change="executeCommand()"/>
             <br/>
-            <!--grouped text: {{grouped}}-->
 
 
             <div class="main">
                 <h1>Der Raketenwerfer</h1>
 
                 <p>
+
                     <img id="controller" src="gameboy.png" alt="retro gameboycontroller" usemap="#gameboymap">
                     <map name="gameboymap">
-                        <area alt="left" title="left" href="javascript:console.log('left button pressed')" shape="rect"
+                        <area id="left" ng-click="executeCommand()" alt="left" title="left"
+                              href="javascript:console.log('left button pressed')" ng-model="command"
+                              shape="rect"
                               coords="95,189,80,204"/>
-                        <area alt="up" title="up" href="javascript:console.log('up button pressed')" shape="rect"
+                        <area id="up" ng-click="executeCommand()" alt="up" title="up"
+                              href="javascript:console.log('up button pressed')" shape="rect"
                               coords="94,174,108,186"
                               style="outline:none;" target="_self"/>
-                        <area alt="right" title="right" href="javascript:console.log('right button pressed')"
+                        <area id="right" ng-click="executeCommand()" alt="right" title="right"
+                              href="javascript:console.log('right button pressed')"
                               shape="rect"
                               coords="123,186,109,199"
                               style="outline:none;" target="_self"/>
-                        <area alt="down" title="down" href="javascript:console.log('down button pressed')" shape="rect"
+                        <area id="down" ng-click="executeCommand()" alt="down" title="down"
+                              href="javascript:console.log('down button pressed')" shape="rect"
                               coords="95,215,108,200"
                               style="outline:none;" target="_self"/>
-                        <area alt="fire" title="fire" href="javascript:console.log('fire button pressed')" shape="poly"
+                        <area id="fire" ng-click="executeCommand()" alt="fire" title="fire"
+                              href="javascript:console.log('fire button pressed')" shape="poly"
                               coords="185,189,196,192,200,196,199,201,195,206,190,211,184,208,180,203,180,197"
                               style="outline:none;" target="_self"/>
-                        <area alt="off" title="off" href="javascript:console.log('off button pressed')" shape="poly"
+                        <area id="off" ng-click="executeCommand()" alt="off" title="off"
+                              href="javascript:console.log('off button pressed')" shape="poly"
                               coords="208,189,214,177,226,179,227,188,223,195,214,198"
                               style="outline:none;" target="_self"/>
-
                     </map>
-                </p>
             </div>
+
+
         </div>
         <div class="erklaerung">
             <h3>Product Description</h3>
@@ -72,18 +79,18 @@
             <p>
                 Welcome to launcher control!<br>
                 Press...<br>
-                1 Button to hit target one;<br>
-                2 Button to hit target two;<br>
-                3 Button to hit target three);<br>
-                4 Button to hit target four;<br>
-                t Button to hit all targets;<br>
-                w Button to move Launcher up;<br>
-                s Button to move Launcher down;<br>
-                a Button to move Launcher left;<br>
-                d Button to move Launcher right;<br>
-                0 Button to move to zero-position;<br>
-                space Button to launch;<br>
-                x Button to exit program;<br>
+                1 Button to hit target one<br>
+                2 Button to hit target two<br>
+                3 Button to hit target three<br>
+                4 Button to hit target four<br>
+                t Button to hit all targets<br>
+                w Button to move Launcher up<br>
+                s Button to move Launcher down<br>
+                a Button to move Launcher left<br>
+                d Button to move Launcher right<br>
+                0 Button to move to zero-position<br>
+                space Button to launch<br>
+                x Button to exit program<br>
             </p>
         </div>
     </div>
@@ -91,6 +98,6 @@
         <script> document.write(new Date().toDateString()); </script>
     </div>
 </div>
-
+<script>function links(){document.getElemtById("left").executeCommand("2")}</script>
 </body>
 </html>

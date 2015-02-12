@@ -12,7 +12,8 @@ public class Launcher {
     public static void main(String[] args) throws IOException {
 
         // init launcher-control first (may produce exception)
-        final LauncherControl launcherControl = new LauncherControl(new LauncherService());
+        final LauncherControl launcherControl = new LauncherControl();
+        launcherControl.launcherService = new LauncherService();
 
         // print usage
         printUsage();

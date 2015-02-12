@@ -4,8 +4,9 @@ import ch.ntb.usb.Device;
 import ch.ntb.usb.USB;
 import ch.ntb.usb.USBException;
 import de.ninam.projects.launcher.targets.Target;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class LauncherService {
 
     private final byte[] CMD_STOP = new byte[]{0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -96,7 +97,7 @@ public class LauncherService {
      * @param cmd  command
      * @param time that the command shall be executed
      */
-    private void execute(byte[] cmd, int time) {
+    public void execute(byte[] cmd, int time) {
         try {
             if (rocketLauncher.isOpen()) {
                 rocketLauncher.controlMsg(0x21, 0x09, 0, 0, cmd, cmd.length, 2000, false);
@@ -105,6 +106,8 @@ public class LauncherService {
                     //Burn Time and let the Launcher execute.
                 }
                 rocketLauncher.controlMsg(0x21, 0x09, 0, 0, CMD_STOP, CMD_STOP.length, 2000, false);
+            } else {
+                System.out.println("Launcher not open!");
             }
         } catch (Exception e) {
             e.printStackTrace();

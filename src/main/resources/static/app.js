@@ -1,13 +1,18 @@
-angular.module('launcher', ['ngResource'])
-    .controller('launcherControl', function($scope, $resource){
+angular.module('launcherApplication', ['ngResource'])
+    .controller('launcherWebController', function($scope, $resource){
 
-        var resource = $resource("http://localhost:8080/nina/launcher");
+        var resource = $resource("http://localhost:8080/nina/launcher",{},
+        {'save':   {method:'POST'}});
 
-        $scope.command = "";
+
+{$scope.ctl = { ctl: 'd'};}
+
 
         $scope.executeCommand = function() {
-            resource.save($scope.command).$promise.then(function(data){
-                $scope.executeCommand= data.executeCommand;
+            console.info('executeCommand()');
+            resource.save($scope.ctl, function(data){
+                console.info('success');
+                //$scope.executeCommand();
             });
         }
     });
